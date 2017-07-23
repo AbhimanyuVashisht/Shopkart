@@ -8,6 +8,7 @@ $.getJSON("data/products.json",function (data) {
     getCatalog(data);
 });
 
+
 function getCatalog(JSONfetch) {
     for( i in JSONfetch){
         let dataObj = JSONfetch[i];
@@ -15,7 +16,23 @@ function getCatalog(JSONfetch) {
     }
 }
 
+function addToKart(prodId) {
+    Kartlog[prodId].q++;
+
+}
+
+function removeFromKart(prodId) {
+    Kartlog[prodId].q--;
+    if(Kartlog[prodId].q){
+        return;
+    }
+    else{
+        Kartlog.splice(prodId,1);
+    }
+}
 
 
 
-
+function saveKart() {
+    localStorage.setItem("kart",JSON.stringify(Kartlog));
+}

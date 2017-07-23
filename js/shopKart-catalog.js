@@ -24,9 +24,9 @@ function addToKartAndSave(ev) {
     }
     else {
         let flag = 1;
-        for (i in Kartlog) {
-            if (Kartlog[i].id == itemId) {
-                Kartlog[i].q++;
+        for (index in Kartlog) {
+            if (Kartlog[index].id == itemId) {
+                Kartlog[index].q++;
                 flag = 0;
             }
         }
@@ -73,7 +73,5 @@ function createCatalogElement(i) {
     return catalogItem;
 }
 
-function saveKart() {
-    localStorage.setItem("kart",JSON.stringify(Kartlog));
-}
+
 
