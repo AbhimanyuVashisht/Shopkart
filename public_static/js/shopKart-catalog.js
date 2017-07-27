@@ -8,7 +8,8 @@ let catalogContainer;
 $(function () {
     catalogContainer = $('#catalog-container');
 
-    refreshShoppingKart(true);
+    getCatalog();
+    // refreshShoppingKart(true);
 
     let btnAdd = $(".kart");
 
@@ -16,6 +17,8 @@ $(function () {
 
 });
 
+
+// To Save the Product to the Kart
 function addToKartAndSave(ev) {
     let itemId = +($(ev.target).attr('data-id'));
     console.log("SaveFunction");
@@ -49,6 +52,8 @@ function refreshShoppingKart(firstPageLoad = false) {
     if(!firstPageLoad){
         saveKart();
     }
+
+
     catalogContainer.empty();
     for(i in catalog){
         let catalogItem = createCatalogElement(i);
@@ -65,7 +70,7 @@ function createCatalogElement(i) {
                                         <h4 class="card-tittle"><b>${catalogElement.product}</b></h4>
                                         <p class="card-text">${catalogElement.description}</p>
                                         <p class="card-text">Rs:${catalogElement.price}</p>
-                                        <a href="#" class="btn btn-success btn-block" data-id="${catalogElement.id}">Add to Kart</a>
+                                        <a href="#" class="btn btn-success btn-block" data-id="${catalogElement.prodId}">Add to Kart</a>
                                         <!--<p class="card-text">${catalogElement.inkart} in Kart</p>-->
                                     </div>                                                      
                                 </div>

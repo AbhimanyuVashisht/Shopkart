@@ -1,20 +1,33 @@
 /**
  * Created by av on 1/7/17.
  */
-var Kartlog = [];
-var catalog = [];
+let Kartlog = [];
+let catalog = [];
 
-$.getJSON("data/products.json",function (data) {
+
+/*** Initially Reading Products Catalog from JSON file
+$.getJSON("../data/products.json",function (data) {
     getCatalog(data);
 });
+***/
 
 
+function getCatalog() {
+    $.get('/getcatalog', (data)=>{
+        catalog = data;
+        refreshShoppingKart(true);
+    });
+}
+
+
+/*
 function getCatalog(JSONfetch) {
     for( i in JSONfetch){
         let dataObj = JSONfetch[i];
         catalog.push(dataObj);
     }
 }
+***/
 
 function addToKart(prodId) {
     Kartlog[prodId].q++;

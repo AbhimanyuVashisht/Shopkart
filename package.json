@@ -17,6 +17,16 @@
   },
   "homepage": "https://github.com/AbhimanyuVashisht/Shopkart#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mysql2": "^1.3.6",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.4.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.3"
   }
 }
